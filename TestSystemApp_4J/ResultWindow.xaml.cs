@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TestSystemApp_4J.Models;
+using TestSystemApp_4J.Classes;
 
 namespace TestSystemApp_4J
 {
@@ -22,6 +25,12 @@ namespace TestSystemApp_4J
         public ResultWindow()
         {
             InitializeComponent();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            // resultDataGrid.ItemsSource = TestDataClass.GetViewModelResultUsers();
+            resultDataGrid.ItemsSource = DataAccessLayer.GetViewModelResultUsers();
         }
     }
 }

@@ -65,3 +65,5 @@ C:\Users\viosagmir\source\repos\TestSystemApp_4J\TestSystemApp_4J\bin\Debug\net6
 C:\Users\viosagmir\source\repos\TestSystemApp_4J\TestSystemApp_4J\bin\Debug\net6.0-windows\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\viosagmir\source\repos\TestSystemApp_4J\TestSystemApp_4J\obj\Debug\net6.0-windows\ResultWindow.g.cs
 C:\Users\viosagmir\source\repos\TestSystemApp_4J\TestSystemApp_4J\obj\Debug\net6.0-windows\ResultWindow.baml
+C:\Users\viosagmir\source\repos\TestSystemApp_4J\TestSystemApp_4J\obj\Debug\net6.0-windows\LoginWindow.g.cs
+C:\Users\viosagmir\source\repos\TestSystemApp_4J\TestSystemApp_4J\obj\Debug\net6.0-windows\LoginWindow.baml

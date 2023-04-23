@@ -5,15 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestSystemApp_4J"
         mc:Ignorable="d"
-        Title="ResultWindow" Height="450" Width="800">
+        Title="ResultWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        <DataGrid Name="resultDataGrid">
-            <DataGrid.Columns>
+        <DataGrid Name="resultDataGrid" AutoGenerateColumns="True" CanUserAddRows="False"
+                  IsReadOnly="True">
+        </DataGrid>
+        
+        <!-- 
+        <DataGrid.Columns>
                 <DataGridTextColumn Header="Id" Binding="{Binding Id}" Width="*"/>
                 <DataGridTextColumn Header="Scores" Binding="{Binding Scores}" Width="*"/>
                 <DataGridTextColumn Header="Start Date Time" Binding="{Binding StartDateTime}" Width="*"/>
                 <DataGridTextColumn Header="End Date Time" Binding="{Binding EndDateTime}" Width="*"/>
             </DataGrid.Columns>
-        </DataGrid>
+        -->
     </Grid>
 </Window>

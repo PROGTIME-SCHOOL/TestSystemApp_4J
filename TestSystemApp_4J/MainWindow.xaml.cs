@@ -24,10 +24,8 @@ namespace TestSystemApp_4J
     public partial class MainWindow : Window
     {
         private List<Question> questions = new List<Question>();
-        private User user = new User();
+        private User user;
         private Result result = new Result();
-
-
 
         public MainWindow()
         {
@@ -36,14 +34,20 @@ namespace TestSystemApp_4J
             //DataAccessLayer layer = new DataAccessLayer();
             //layer.LoadDataToDb();
 
-            // load data from db
-            TestSystemContext context = new TestSystemContext();
-            questions = context.Question.Select(x => x).ToList();
-            user = context.User.First();
+            this.Hide();
+
+            LoginWindow loginWindow = new LoginWindow(this);
+            loginWindow.Show();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        public void LoadProgram(User user)
         {
+            TestSystemContext context = new TestSystemContext();
+            questions = context.Question.Select(x => x).ToList();
+
+            //user = context.User.FirstOrDefault(x => x == user);
+            this.user = user;
+
             // UI
             lblQuestion.Content = questions.First().Text;
             lblUserName.Content = $"Name: {user.Login}, ID: {user.Id}";
@@ -51,6 +55,11 @@ namespace TestSystemApp_4J
             // LOGIC
             result.StartDateTime = DateTime.Now;
             result.MaxScores = questions.Count;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            
         }
 
         private void ButtonAnswer_Clicked(object sender, RoutedEventArgs e)

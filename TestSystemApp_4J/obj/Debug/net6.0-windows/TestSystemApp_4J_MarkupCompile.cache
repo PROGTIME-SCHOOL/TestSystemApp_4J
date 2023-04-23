@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\viosagmir\source\repos\TestSystemApp_4J\TestSystemApp_4J\App.xaml
-21798330669
+3174631853
 
-121767018003
+15-1320135290
 212-1987197708
-MainWindow.xaml;ResultWindow.xaml;
+LoginWindow.xaml;MainWindow.xaml;ResultWindow.xaml;
 
 False
 
