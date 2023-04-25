@@ -10,6 +10,7 @@ namespace TestSystemApp_4J.Models.ViewModels
     {
         public int Id { get; set; }
         public string UserName { get; set; }
+        public string TestName { get; set; }
         public int Score { get; set; }
         public int MaxScores { get; set; }
         public string StartDate { get; set; }

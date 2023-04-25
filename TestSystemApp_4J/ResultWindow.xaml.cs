@@ -22,15 +22,20 @@ namespace TestSystemApp_4J
     /// </summary>
     public partial class ResultWindow : Window
     {
-        public ResultWindow()
+        private int userId = 1;
+
+        public ResultWindow(int userId)
         {
             InitializeComponent();
+
+            this.userId = userId;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // resultDataGrid.ItemsSource = TestDataClass.GetViewModelResultUsers();
-            resultDataGrid.ItemsSource = DataAccessLayer.GetViewModelResultUsers();
+
+            resultDataGrid.ItemsSource = DataAccessLayer.GetViewModelResultUsers(userId);
         }
     }
 }

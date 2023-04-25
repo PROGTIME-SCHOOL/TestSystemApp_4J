@@ -48,5 +48,42 @@ namespace TestSystemApp_4J
                 mainWindow.Close();
             }
         }
+
+        private void ButtonSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            string login = txtLoginRegister.Text;
+            string password = txtPasswordRegister.Text;
+            string repeatePassword = txtPasswordRepeateRegister.Text;
+
+            if (password != repeatePassword)
+            {
+                MessageBox.Show("Пароли не совпадают!");
+            }
+            else if (password.Length <= 3)
+            {
+                MessageBox.Show("Пароль должен состоять из 4 символов и более!");
+            }
+            else if (login.Length <= 3)
+            {
+                MessageBox.Show("Логин должен состоять из 4 символов и более!");
+            }
+            else
+            {
+                if(DataAccessLayer.SignUp(login, password))
+                {
+                    MessageBox.Show("Регистрация прошла успешно! " +
+                    $"Используйте login: {login} и пароль: {password} для входа в систему!");
+
+                    txtLoginRegister.Text = "";
+                    txtPasswordRegister.Text = "";
+                    txtPasswordRepeateRegister.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show($"Логин {login} уже присутствует в системе!" +
+                        $"Пожалуйста, придумайте другой логин!");
+                } 
+            }
+        }
     }
 }

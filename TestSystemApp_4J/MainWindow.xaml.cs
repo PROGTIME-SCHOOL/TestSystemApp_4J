@@ -26,6 +26,7 @@ namespace TestSystemApp_4J
         private List<Question> questions = new List<Question>();
         private User user;
         private Result result = new Result();
+        List<Test> tests;
 
         public MainWindow()
         {
@@ -42,19 +43,16 @@ namespace TestSystemApp_4J
 
         public void LoadProgram(User user)
         {
-            TestSystemContext context = new TestSystemContext();
-            questions = context.Question.Select(x => x).ToList();
+            tests = DataAccessLayer.GetAllTests();
 
-            //user = context.User.FirstOrDefault(x => x == user);
             this.user = user;
 
             // UI
-            lblQuestion.Content = questions.First().Text;
             lblUserName.Content = $"Name: {user.Login}, ID: {user.Id}";
-
-            // LOGIC
-            result.StartDateTime = DateTime.Now;
-            result.MaxScores = questions.Count;
+            foreach (Test test in tests)
+            {
+                comboBoxTests.Items.Add(test.Name);
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -108,15 +106,32 @@ namespace TestSystemApp_4J
 
                 MessageBox.Show("Data saved to Db!");
             }
-
-            
         }
 
         private void ButtonResults_Click(object sender, RoutedEventArgs e)
         {
-            ResultWindow resultWindow = new ResultWindow();
+            ResultWindow resultWindow = new ResultWindow(user.Id);
 
             resultWindow.Show();
+        }
+
+        private void ButtonStartTest_Click(object sender, RoutedEventArgs e)
+        {
+            int index = comboBoxTests.SelectedIndex;
+
+            int idTest = tests[index].Id;
+
+            questions = DataAccessLayer.GetQuestionsForTest(idTest);
+
+            // UI
+            lblQuestion.Content = questions.First().Text;
+            btnYes.IsEnabled = true;
+            btnNo.IsEnabled = true;
+
+            // LOGIC
+            result = new Result();
+            result.StartDateTime = DateTime.Now;
+            result.MaxScores = questions.Count;
         }
     }
 }

@@ -16,6 +16,9 @@
 
         <StackPanel Orientation="Horizontal">
             <Button Click="ButtonResults_Click" Width="100" Content="Results" Margin="15"/>
+            <ComboBox Name="comboBoxTests" Width="100" Margin="15"/>
+            <Button Width="100" Margin="15" Content="START TEST" Background="Orange"
+                    Click="ButtonStartTest_Click"/>
         </StackPanel>
 
         <Label Name="lblQuestion" Grid.Row="1" Content="QUESTION" HorizontalContentAlignment="Center"

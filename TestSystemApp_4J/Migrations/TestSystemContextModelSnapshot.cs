@@ -63,6 +63,46 @@ namespace TestSystemApp_4J.Migrations
                     b.ToTable("Result");
                 });
 
+            modelBuilder.Entity("TestSystemApp_4J.Models.Test", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Test");
+                });
+
+            modelBuilder.Entity("TestSystemApp_4J.Models.TestQuestion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TestId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionId");
+
+                    b.HasIndex("TestId");
+
+                    b.ToTable("TestQuestion");
+                });
+
             modelBuilder.Entity("TestSystemApp_4J.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -91,6 +131,35 @@ namespace TestSystemApp_4J.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TestSystemApp_4J.Models.TestQuestion", b =>
+                {
+                    b.HasOne("TestSystemApp_4J.Models.Question", "Question")
+                        .WithMany("TestQuestions")
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TestSystemApp_4J.Models.Test", "Test")
+                        .WithMany("TestQuestions")
+                        .HasForeignKey("TestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Question");
+
+                    b.Navigation("Test");
+                });
+
+            modelBuilder.Entity("TestSystemApp_4J.Models.Question", b =>
+                {
+                    b.Navigation("TestQuestions");
+                });
+
+            modelBuilder.Entity("TestSystemApp_4J.Models.Test", b =>
+                {
+                    b.Navigation("TestQuestions");
                 });
 
             modelBuilder.Entity("TestSystemApp_4J.Models.User", b =>

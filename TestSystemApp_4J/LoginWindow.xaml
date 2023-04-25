@@ -5,26 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestSystemApp_4J"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="300" Width="400" Closed="Window_Closed">
+        Title="LoginWindow" Height="250" Width="400" Closed="Window_Closed">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
         <StackPanel HorizontalAlignment="Center">
             <Label Content="Sign In" HorizontalAlignment="Center" FontSize="20"/>
 
-            <StackPanel Margin="5" Orientation="Horizontal" Width="200">
-                <Label Content="Login:"/>
-                <TextBox Name="txtLogin" Width="100" HorizontalAlignment="Right"/>
-            </StackPanel>
-            <StackPanel Margin="5" Orientation="Horizontal">
-                <Label Content="Password:"/>
-                <TextBox Name="txtPassword" Width="100"/>
-            </StackPanel>
+            <Label Content="Login:"/>
+            <TextBox Name="txtLogin" Width="100" HorizontalAlignment="Right"/>
+            <Label Content="Password:"/>
+            <TextBox Name="txtPassword" Width="100"/>
 
-            <Button Click="Button_Click" Margin="10" Content="SIGN IN" Background="Orange"/>
+            <Button Click="Button_Click" Margin="0 15 0 0" Content="SIGN IN" Background="Orange"/>
         </StackPanel>
+
+
+        <StackPanel Grid.Column="1"  HorizontalAlignment="Center">
+            <Label Content="Sign Up" HorizontalAlignment="Center" FontSize="20"/>
+
+            <Label Content="Login:"/>
+            <TextBox Name="txtLoginRegister" Width="100"/>
+            <Label Content="Password:"/>
+            <TextBox Name="txtPasswordRegister" Width="100"/>
+            <Label Content="Repeate password:"/>
+            <TextBox Name="txtPasswordRepeateRegister" Width="100"/>
+
+            <Button Click="ButtonSignUp_Click" Margin="0 15 0 0" Content="SIGN UP" Background="LightGreen"/>
+        </StackPanel>
+
     </Grid>
 </Window>

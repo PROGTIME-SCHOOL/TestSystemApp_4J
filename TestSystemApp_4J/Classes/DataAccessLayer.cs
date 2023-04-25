@@ -33,13 +33,13 @@ namespace TestSystemApp_4J.Classes
             context.SaveChanges();
         }
 
-        public static List<ViewModelResultUser> GetViewModelResultUsers()
+        public static List<ViewModelResultUser> GetViewModelResultUsers(int id = 1)
         {
+            int idUser = id;
+
             TestSystemContext context = new TestSystemContext();
 
             List<ViewModelResultUser> viewModelResultUsers = new List<ViewModelResultUser>();
-
-            int idUser = 2;
 
             //var user = GetUsers().FirstOrDefault(x => x.Id == idUser);
             //var results = GetResults().Where(x => x.UserId == idUser).ToList();
@@ -77,6 +77,48 @@ namespace TestSystemApp_4J.Classes
             User user = context.User.FirstOrDefault(x => x.Login == login && x.Password == password);
 
             return user;
+        }
+
+        public static bool SignUp(string login, string password)
+        {
+            User user = new User()
+            {
+                Login = login, Password = password
+            };
+
+            TestSystemContext context = new TestSystemContext();
+
+            User tempUser = context.User.FirstOrDefault(x => x.Login == login);
+
+            if (tempUser != null)
+            {
+                return false;
+            }
+
+            context.User.Add(user);
+            context.SaveChanges();
+            return true;
+        }
+
+
+        public static List<Test> GetAllTests()
+        {
+            TestSystemContext context = new TestSystemContext();
+
+            List<Test> tests = context.Test.ToList();
+
+            return tests;
+        }
+
+        public static List<Question> GetQuestionsForTest(int idTest)
+        {
+            TestSystemContext context = new TestSystemContext();
+
+            var questions = context.TestQuestion.
+                Where(x => x.TestId == idTest).
+                Select(x => x.Question).ToList();
+
+            return questions;
         }
     }
 }

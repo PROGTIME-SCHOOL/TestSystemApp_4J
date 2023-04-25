@@ -15,6 +15,9 @@ namespace TestSystemApp_4J
         public DbSet<Result> Result { get; set; }
         public DbSet<User> User { get; set; }
 
+        public DbSet<Test> Test { get; set; }
+        public DbSet<TestQuestion> TestQuestion { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             string path = AppDomain.CurrentDomain.BaseDirectory;
