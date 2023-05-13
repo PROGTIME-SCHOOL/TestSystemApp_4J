@@ -5,34 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestSystemApp_4J"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="60"/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition Height="60"/>
-        </Grid.RowDefinitions>
-
-        <StackPanel Orientation="Horizontal">
-            <Button Click="ButtonResults_Click" Width="100" Content="Results" Margin="15"/>
-            <ComboBox Name="comboBoxTests" Width="100" Margin="15"/>
-            <Button Width="100" Margin="15" Content="START TEST" Background="Orange"
-                    Click="ButtonStartTest_Click"/>
-        </StackPanel>
-
-        <Label Name="lblQuestion" Grid.Row="1" Content="QUESTION" HorizontalContentAlignment="Center"
-               VerticalContentAlignment="Center" FontSize="20"/>
-
-        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Name="btnYes" Width="200" Background="Green" Margin="20" Content="YES"
-                    FontSize="20" Foreground="White" Click="ButtonAnswer_Clicked"/>
-            <Button Name="btnNo" Width="200" Background="DarkRed" Margin="20" Content="NO"
-                    FontSize="20" Foreground="White" Click="ButtonAnswer_Clicked"/>
-        </StackPanel>
-
-        <StackPanel Orientation="Horizontal" Grid.Row="4">
-            <Label Name="lblUserName" Content="Name: " VerticalAlignment="Center" Margin="15"/>
-        </StackPanel>
+        <Frame x:Name="frame" NavigationUIVisibility="Hidden">
+            <Frame.Style>
+                <Style TargetType="Frame">
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                </Style>
+            </Frame.Style>
+        </Frame>
     </Grid>
 </Window>
