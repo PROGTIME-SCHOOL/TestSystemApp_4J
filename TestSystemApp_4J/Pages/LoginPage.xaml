@@ -1,12 +1,14 @@
-﻿<Window x:Class="TestSystemApp_4J.LoginWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TestSystemApp_4J"
-        mc:Ignorable="d"
-        Title="LoginWindow" Height="250" Width="400" Closed="Window_Closed">
-    <Grid>
+﻿<Page x:Class="TestSystemApp_4J.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TestSystemApp_4J.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="LoginPage">
+
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -36,6 +38,5 @@
 
             <Button Click="ButtonSignUp_Click" Margin="0 15 0 0" Content="SIGN UP" Background="LightGreen"/>
         </StackPanel>
-
     </Grid>
-</Window>
+</Page>

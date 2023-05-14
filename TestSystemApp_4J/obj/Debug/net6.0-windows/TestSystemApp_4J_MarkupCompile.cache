@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\viosagmir\source\repos\TestSystemApp_4J\TestSystemApp_4J\obj\Debug\net6.0-windows\
+C:\Users\User\source\repos\TestSystemApp_4J-main\TestSystemApp_4J\obj\Debug\net6.0-windows\
 TestSystemApp_4J
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\viosagmir\source\repos\TestSystemApp_4J\TestSystemApp_4J\App.xaml
-3174631853
+C:\Users\User\source\repos\TestSystemApp_4J-main\TestSystemApp_4J\App.xaml
+5391187890
 
-19185667933
-212-1987197708
-LoginWindow.xaml;MainWindow.xaml;ResultWindow.xaml;
+252035467283
+2121598980472
+MainWindow.xaml;Pages\EditPage.xaml;Pages\LoginPage.xaml;Pages\MainPage.xaml;ResultWindow.xaml;
 
 False
 

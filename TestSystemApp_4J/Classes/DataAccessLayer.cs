@@ -100,12 +100,20 @@ namespace TestSystemApp_4J.Classes
             return true;
         }
 
+        public static List<User> GetAllUsers()
+        {
+            TestSystemContext context = new TestSystemContext();
+
+            List<User> users = context.User.AsNoTracking().ToList();
+
+            return users;
+        }
 
         public static List<Test> GetAllTests()
         {
             TestSystemContext context = new TestSystemContext();
 
-            List<Test> tests = context.Test.ToList();
+            List<Test> tests = context.Test.AsNoTracking().ToList();
 
             return tests;
         }
@@ -116,7 +124,7 @@ namespace TestSystemApp_4J.Classes
 
             var questions = context.TestQuestion.
                 Where(x => x.TestId == idTest).
-                Select(x => x.Question).ToList();
+                Select(x => x.Question).AsNoTracking().ToList();
 
             return questions;
         }

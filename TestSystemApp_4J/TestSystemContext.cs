@@ -9,7 +9,7 @@ using TestSystemApp_4J.Models;
 
 namespace TestSystemApp_4J
 {
-    class TestSystemContext : DbContext
+    public class TestSystemContext : DbContext
     {
         public DbSet<Question> Question { get; set; }
         public DbSet<Result> Result { get; set; }

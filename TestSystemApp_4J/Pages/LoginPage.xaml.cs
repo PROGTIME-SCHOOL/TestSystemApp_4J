@@ -10,23 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TestSystemApp_4J.Classes;
 using TestSystemApp_4J.Models;
 
-namespace TestSystemApp_4J
+namespace TestSystemApp_4J.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для LoginWindow.xaml
+    /// Логика взаимодействия для LoginPage.xaml
     /// </summary>
-    public partial class LoginWindow : Window
+    public partial class LoginPage : Page
     {
-        private MainWindow mainWindow;
-        public LoginWindow(MainWindow mainWindow)
+        private MainPage mainPage;
+
+        public LoginPage(MainPage mainPage)
         {
             InitializeComponent();
-
-            this.mainWindow = mainWindow;
+            this.mainPage = mainPage;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -35,17 +36,9 @@ namespace TestSystemApp_4J
 
             if (user != null)
             {
-                mainWindow.LoadProgram(user);
-                mainWindow.Show();
-                this.Close();
-            }
-        }
+                mainPage.LoadProgram(user);
 
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            if (!mainWindow.IsVisible)
-            {
-                mainWindow.Close();
+                Addition.NavigationService?.Navigate(mainPage);
             }
         }
 
@@ -69,7 +62,7 @@ namespace TestSystemApp_4J
             }
             else
             {
-                if(DataAccessLayer.SignUp(login, password))
+                if (DataAccessLayer.SignUp(login, password))
                 {
                     MessageBox.Show("Регистрация прошла успешно! " +
                     $"Используйте login: {login} и пароль: {password} для входа в систему!");
@@ -82,7 +75,7 @@ namespace TestSystemApp_4J
                 {
                     MessageBox.Show($"Логин {login} уже присутствует в системе!" +
                         $"Пожалуйста, придумайте другой логин!");
-                } 
+                }
             }
         }
     }
